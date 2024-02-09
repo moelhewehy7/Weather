@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/cubits/get_weather_cubit.dart';
-import 'package:weather_app/model/weather_model.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
+import 'package:weather_app/views/home_view.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -9,20 +9,41 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 73, 73, 73),
+      backgroundColor: const Color(0xFF494949),
       appBar: AppBar(
+        backgroundColor: const Color(0xFF494949),
         elevation: 0,
-        // backgroundColor: const Color.fromARGB(255, 73, 73, 73),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: TextFormField(
           onFieldSubmitted: (value) async {
-            var getweathercubit = BlocProvider.of<GetWeatherCubit>(context);
-            getweathercubit.getWeather(cityname: value);
+            if (value.isNotEmpty) {
+              // Save the city name in shared preferences
+              await BlocProvider.of<WeatherCubit>(context)
+                  .saveLastSearchedCity(value);
 
-            Navigator.of(context).pop();
+              BlocProvider.of<WeatherCubit>(context)
+                  .getWeather(cityname: value);
+              Navigator.of(context).pushReplacement(
+                PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 1000),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: child,
+                    );
+                  },
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    // Return your destination screen widget here
+                    return const HomeView();
+                  },
+                ),
+              );
+            }
           },
+
           style: const TextStyle(
               color: Colors.white), // Set the color of the user input text
           decoration: InputDecoration(
@@ -44,10 +65,3 @@ class SearchPage extends StatelessWidget {
     );
   }
 }
-
-WeatherModel? weathermodel;
-// WeatherModel? weathermodel; // Declaration
-// weathermodel = WeatherModel(); // Instantiation
-// Yes, that's correct! If the getWeather method returns the city name
-// (for example, "London") and the WeatherModel class has a property named cityname,
-//  then assigning the result of getWeather to an instance of WeatherModel would indeed populate the cityname

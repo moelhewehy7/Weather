@@ -6,10 +6,12 @@ class WeatherModel {
   final double maxTemp;
   final double minTemp;
   final String weatherStateName;
+  final String country;
 
   WeatherModel(
       {this.image,
       required this.cityname,
+      required this.country,
       required this.date,
       required this.temp,
       required this.maxTemp,
@@ -28,6 +30,7 @@ class WeatherModel {
       minTemp: json['forecast']['forecastday'][0]['day']['mintemp_c'],
       weatherStateName: json['forecast']['forecastday'][0]['day']['condition']
           ['text'],
+      country: json['location']['country'],
     );
   }
   String getImage() {

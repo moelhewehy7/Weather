@@ -1,4 +1,6 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:weather_app/core/errors/failures.dart';
 import 'package:weather_app/model/weather_model.dart';
 
 class WeatherService {
@@ -7,19 +9,26 @@ class WeatherService {
   final String baseurl = "http://api.weatherapi.com/v1/forecast.json";
   WeatherService(this.dio);
 
-  Future<WeatherModel> getWeather({required String cityname}) async {
+  Future<Either<Failure, WeatherModel>> getWeather(
+      {required String cityname}) async {
     try {
       Response response = await dio.get("$baseurl?key=$key&q=$cityname&days=3");
-      //http://api.weatherapi.com/v1/forecast.json?key=c1bae27c60d841a9a19131622230606&q=London&days=3&aqi=no&alerts=no
 
       if (response.statusCode == 200) {
         WeatherModel weatherModel = WeatherModel.fromjson(response.data);
-        return weatherModel;
+        return Right(weatherModel);
       } else {
-        throw Exception('Failed to load weather data');
+        return Left(ServerFailure('Failed to load weather data'));
       }
     } catch (e) {
-      throw Exception('Failed to fetch weather data: $e');
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else if (e is DioException) {
+        return left(ServerFailure.fromResponse(
+            e.response!.statusCode, e.response!.data));
+      } else {
+        return left(ServerFailure("No cities found for the given search."));
+      }
     }
   }
 }
