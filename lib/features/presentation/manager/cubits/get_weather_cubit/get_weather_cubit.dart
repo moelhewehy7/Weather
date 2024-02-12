@@ -29,6 +29,7 @@ class WeatherCubit extends Cubit<WeatherState> {
 
   Future<void> getLastSearchedCity() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
     lastSearchedCity = prefs.getString('lastSearchedCity');
 
     if (lastSearchedCity != null) {
@@ -37,6 +38,7 @@ class WeatherCubit extends Cubit<WeatherState> {
     }
   }
 }
+
 
 // Initialization: In the constructor of the WeatherCubit,
 //  the getLastSearchedCity method is called to load the last searched city when the cubit is created. 

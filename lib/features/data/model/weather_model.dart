@@ -58,9 +58,7 @@ class WeatherModel {
     } else if (weatherStateName == 'Heavy Rain' ||
         weatherStateName == 'Patchy light rain with thunder' ||
         weatherStateName == "Moderate rain" ||
-        weatherStateName == 'Showers') {
-      return 'assets/images/rainy.jpg';
-    } else if (weatherStateName == 'Thundery outbreaks possible' ||
+        weatherStateName == 'Thundery outbreaks possible' ||
         weatherStateName == 'Patchy light snow with thunder' ||
         weatherStateName == 'Moderate or heavy rain with thunder' ||
         weatherStateName == 'Light rain shower' ||
@@ -73,9 +71,12 @@ class WeatherModel {
         weatherStateName == 'Light showers of ice pellets' ||
         weatherStateName == 'Moderate or heavy showers of ice pellets' ||
         weatherStateName == 'Patchy light rain with thunder' ||
+        weatherStateName == 'Patchy rain nearby' ||
         weatherStateName == 'Light freezing rain' ||
         weatherStateName == 'Patchy light snow' ||
-        weatherStateName == 'light snow' ||
+        weatherStateName == 'Showers') {
+      return 'assets/images/rainy.jpg';
+    } else if (weatherStateName == 'light snow' ||
         weatherStateName == 'cloudy' ||
         weatherStateName == 'Overcast ' ||
         weatherStateName == 'partly cloudy' ||
