@@ -79,7 +79,7 @@ class WeatherModel {
     } else if (weatherStateName == 'light snow' ||
         weatherStateName == 'cloudy' ||
         weatherStateName == 'Overcast ' ||
-        weatherStateName == 'partly cloudy' ||
+        weatherStateName == 'Partly Cloudy ' ||
         weatherStateName == 'Moderate or heavy freezing rain' ||
         weatherStateName == 'Patchy light snow with thunder' ||
         weatherStateName == 'Moderate or heavy snow with thunder' ||
