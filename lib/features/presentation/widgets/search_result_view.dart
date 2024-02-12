@@ -126,6 +126,8 @@ class ResultListView extends StatelessWidget {
                         BlocProvider.of<WeatherCubit>(context)
                             .getWeather(cityname: citymodel[i].name);
                         animatednavigation(context);
+                        BlocProvider.of<WeatherCubit>(context)
+                            .getLastSearchedCity();
                       },
                       icon: const Icon(Icons.add, color: Colors.white),
                     ),

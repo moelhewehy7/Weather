@@ -20,6 +20,14 @@ class HomeView extends StatelessWidget {
           return WeatherInfoBody(weathermodel: state.weatherModel);
         } else if (state is WeatherInitState) {
           return const GetStarted();
+        } else if (state is WeatherFailureState) {
+          return Center(
+            child: Text(
+              state.errMessage,
+              style: TextStyle(fontSize: 18, color: Colors.red),
+              textAlign: TextAlign.center,
+            ),
+          );
         } else {
           return const Center(
             child: CircularProgressIndicator(),

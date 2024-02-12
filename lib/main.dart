@@ -4,6 +4,7 @@ import 'package:weather_app/features/presentation/manager/cubits/get_weather_cub
 import 'package:weather_app/features/presentation/views/onboarding_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const WeatherApp());
 }
 
