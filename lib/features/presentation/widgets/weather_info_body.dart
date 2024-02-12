@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/model/weather_model.dart';
-import 'package:weather_app/views/search_page.dart';
+import 'package:weather_app/features/data/model/weather_model.dart';
+import 'package:weather_app/features/presentation/views/search_page.dart';
 import 'package:extended_image/extended_image.dart';
 
 class WeatherInfoBody extends StatelessWidget {
@@ -48,13 +48,13 @@ class WeatherInfoBodyStack extends StatelessWidget {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.only(
-                top: height * 0.03,
+                top: height * 0.035,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,7 +62,7 @@ class WeatherInfoBodyStack extends StatelessWidget {
                   const Spacer(), SizedBox(width: width * .10),
                   Text(
                     weathermodel.cityname,
-                    style: const TextStyle(fontSize: 25, color: Colors.white),
+                    style: const TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   const Spacer(), // This will push the IconButton to the end of the row
                   IconButton(
@@ -84,45 +84,48 @@ class WeatherInfoBodyStack extends StatelessWidget {
             SizedBox(
               height: height * .12,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(
-                  '${weathermodel.temp.round()}',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize:
-                        80, // Adjust the size as needed for the temperature
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                SizedBox(
-                    width: width *
-                        .01), // Adjust the space between the temperature and '°C'
-                Transform.translate(
-                  offset: const Offset(
-                      0, -40), // Adjust the offset to move the '°C' higher
-                  child: const Text(
-                    '°C',
-                    style: TextStyle(
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text(
+                    '${weathermodel.temp.round()}',
+                    style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 24,
+                      fontSize:
+                          70, // Adjust the size as needed for the temperature
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                ),
-              ],
+                  SizedBox(
+                      width: width *
+                          .01), // Adjust the space between the temperature and '°C'
+                  Transform.translate(
+                    offset: const Offset(
+                        0, -40), // Adjust the offset to move the '°C' higher
+                    child: const Text(
+                      '°C',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: width * 0.02),
+              padding: EdgeInsets.only(left: width * 0.01),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     weathermodel.weatherStateName,
                     style: const TextStyle(
-                      fontSize: 25,
+                      fontSize: 22,
                       color: Colors.white,
                     ),
                   ),
@@ -133,9 +136,9 @@ class WeatherInfoBodyStack extends StatelessWidget {
             Opacity(
               opacity: 0.8,
               child: Container(
-                height: height * .11,
-                width: width * .9,
-                padding: const EdgeInsets.all(16.0),
+                height: height * 0.1,
+                padding:
+                    EdgeInsets.only(top: height * 0.02, bottom: height * 0.02),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(203, 0, 0, 0),
                   borderRadius: BorderRadius.circular(15),
@@ -145,6 +148,7 @@ class WeatherInfoBodyStack extends StatelessWidget {
                   ),
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
@@ -153,75 +157,52 @@ class WeatherInfoBodyStack extends StatelessWidget {
                           'Min Temp',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              '${weathermodel.minTemp.round()}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            const SizedBox(width: 2),
-                            const Text(
-                              '°',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          '${weathermodel.minTemp.round()}°',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: height * 0.019,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ],
                     ),
-                    ExtendedImage.network("https:${weathermodel.image}",
-                        fit: BoxFit.cover, cache: true,
-                        loadStateChanged: (ExtendedImageState state) {
-                      switch (state.extendedImageLoadState) {
-                        case LoadState.completed:
-                          return state.completedWidget;
-                        case LoadState.failed:
-                          return const Icon(Icons.error);
-                        case LoadState.loading:
-                      }
-                      return null;
-                    }),
+                    ExtendedImage.network(
+                      "https:${weathermodel.image}",
+                      scale: 1.5,
+                      cache: true,
+                      loadStateChanged: (ExtendedImageState state) {
+                        switch (state.extendedImageLoadState) {
+                          case LoadState.completed:
+                            return state.completedWidget;
+                          case LoadState.failed:
+                            return const Icon(Icons.error);
+                          case LoadState.loading:
+                            return const CircularProgressIndicator(); // Placeholder while loading
+                        }
+                      },
+                    ),
                     Column(
                       children: [
                         const Text(
                           'Max Temp',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              '${weathermodel.maxTemp.round()}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            const SizedBox(width: 2),
-                            const Text(
-                              '°',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          '${weathermodel.maxTemp.round()}°',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: height * 0.019,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ],
                     ),

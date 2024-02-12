@@ -45,12 +45,6 @@ class WeatherModel {
         weatherStateName == 'Moderate or heavy showers of ice pellets' ||
         weatherStateName == 'Ice pellets' ||
         weatherStateName == 'Patchy heavy snow' ||
-        weatherStateName == 'Patchy light snow' ||
-        weatherStateName == 'light snow' ||
-        weatherStateName == 'cloudy' ||
-        weatherStateName == 'Overcast' ||
-        weatherStateName == 'partly cloudy' ||
-        weatherStateName == 'Moderate or heavy freezing rain' ||
         weatherStateName == 'Light sleet' ||
         weatherStateName == 'Moderate or heavy sleet' ||
         weatherStateName == 'Patchy light snow' ||
@@ -79,6 +73,13 @@ class WeatherModel {
         weatherStateName == 'Light showers of ice pellets' ||
         weatherStateName == 'Moderate or heavy showers of ice pellets' ||
         weatherStateName == 'Patchy light rain with thunder' ||
+        weatherStateName == 'Light freezing rain' ||
+        weatherStateName == 'Patchy light snow' ||
+        weatherStateName == 'light snow' ||
+        weatherStateName == 'cloudy' ||
+        weatherStateName == 'Overcast ' ||
+        weatherStateName == 'partly cloudy' ||
+        weatherStateName == 'Moderate or heavy freezing rain' ||
         weatherStateName == 'Patchy light snow with thunder' ||
         weatherStateName == 'Moderate or heavy snow with thunder' ||
         weatherStateName == 'Mis' ||

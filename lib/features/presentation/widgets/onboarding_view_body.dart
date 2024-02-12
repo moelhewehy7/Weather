@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app/views/home_view.dart';
+import 'package:weather_app/features/presentation/views/getstarted.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({super.key});
@@ -83,7 +83,7 @@ class OnBoardingViewBody extends StatelessWidget {
 // It sets the value of 'onboardingShown' to true in shared preferences
 // to indicate that the onboarding has been shown.
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-      return const HomeView();
+      return const GetStarted();
     }));
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app/views/home_view.dart';
-import 'package:weather_app/widgets/onboarding_view_body.dart';
+import 'package:weather_app/features/presentation/views/home_view.dart';
+import 'package:weather_app/features/presentation/widgets/onboarding_view_body.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
