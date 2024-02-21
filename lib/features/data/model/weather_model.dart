@@ -19,8 +19,6 @@ class WeatherModel {
       required this.weatherStateName});
 
   factory WeatherModel.fromjson(dynamic json) {
-    // var jsonData = json['forecast']['forecastday'][0]['day'];
-
     return WeatherModel(
       image: json['forecast']['forecastday'][0]['day']['condition']["icon"],
       cityname: json['location']['name'],

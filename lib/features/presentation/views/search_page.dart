@@ -30,6 +30,9 @@ class _SearchPageState extends State<SearchPage> {
           ),
           child: Column(
             children: [
+              SizedBox(
+                height: height * 0.03,
+              ),
               CustomAppBar(height: height),
               Expanded(
                 child: Padding(

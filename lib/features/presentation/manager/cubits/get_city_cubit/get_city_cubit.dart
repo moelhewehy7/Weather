@@ -11,7 +11,7 @@ class CityCubit extends Cubit<CityState> {
       emit(CityFailureState(
         errMessage: 'Please Start Searching',
       ));
-      return; // Exit the function early if the city name is empty
+      return; // to Exit the function early if the city name is empty
     }
 
     emit(CityloadingState());
