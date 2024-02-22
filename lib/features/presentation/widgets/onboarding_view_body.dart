@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app/features/presentation/views/getstarted.dart';
+import 'package:Weather/features/presentation/views/getstarted.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({super.key});

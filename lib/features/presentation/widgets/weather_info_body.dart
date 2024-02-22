@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/features/data/model/weather_model.dart';
-import 'package:weather_app/features/presentation/views/search_page.dart';
+import 'package:Weather/features/data/model/weather_model.dart';
+import 'package:Weather/features/presentation/views/search_page.dart';
 import 'package:extended_image/extended_image.dart';
 
 class WeatherInfoBody extends StatelessWidget {

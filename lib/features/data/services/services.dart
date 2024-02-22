@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:weather_app/core/errors/failures.dart';
-import 'package:weather_app/features/data/model/city_model.dart';
-import 'package:weather_app/features/data/model/weather_model.dart';
+import 'package:Weather/core/errors/failures.dart';
+import 'package:Weather/features/data/model/city_model.dart';
+import 'package:Weather/features/data/model/weather_model.dart';
 
 class WeatherService {
   final Dio dio;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/features/presentation/manager/cubits/get_city_cubit/get_city_cubit.dart';
+import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_city_cubit.dart';
 
 class SerachField extends StatelessWidget {
   const SerachField({

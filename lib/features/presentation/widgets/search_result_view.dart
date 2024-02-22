@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/features/presentation/manager/cubits/get_city_cubit/get_city_cubit.dart';
-import 'package:weather_app/features/presentation/manager/cubits/get_city_cubit/get_city_states.dart';
-import 'package:weather_app/features/presentation/manager/cubits/get_weather_cubit/get_weather_cubit.dart';
-import 'package:weather_app/features/data/model/city_model.dart';
-import 'package:weather_app/features/presentation/views/home_view.dart';
+import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_city_cubit.dart';
+import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_city_states.dart';
+import 'package:Weather/features/presentation/manager/cubits/get_weather_cubit/get_weather_cubit.dart';
+import 'package:Weather/features/data/model/city_model.dart';
+import 'package:Weather/features/presentation/views/home_view.dart';
 
 class SearchResultListTile extends StatelessWidget {
   const SearchResultListTile({

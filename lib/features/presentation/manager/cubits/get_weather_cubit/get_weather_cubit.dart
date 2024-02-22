@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/features/presentation/manager/cubits/get_weather_cubit/get_weather_states.dart';
-import 'package:weather_app/features/data/services/services.dart';
+import 'package:Weather/features/presentation/manager/cubits/get_weather_cubit/get_weather_states.dart';
+import 'package:Weather/features/data/services/services.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 

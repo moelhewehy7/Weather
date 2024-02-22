@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/features/presentation/views/getstarted.dart';
-import 'package:weather_app/features/presentation/widgets/weather_info_body.dart';
+import 'package:Weather/features/presentation/views/getstarted.dart';
+import 'package:Weather/features/presentation/widgets/weather_info_body.dart';
 
 import '../manager/cubits/get_weather_cubit/get_weather_cubit.dart';
 import '../manager/cubits/get_weather_cubit/get_weather_states.dart';
