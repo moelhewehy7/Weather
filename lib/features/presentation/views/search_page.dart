@@ -62,7 +62,7 @@ class CustomAppBar extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {
-            // Handle back button press
+            Navigator.pop(context);
           },
           child: const Text(
             'Cancel',
