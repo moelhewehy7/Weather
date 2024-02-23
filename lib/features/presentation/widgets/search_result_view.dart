@@ -88,9 +88,7 @@ class ResultListView extends StatelessWidget {
                 animatednavigation(context);
               },
               child: Container(
-                padding: const EdgeInsets.only(
-                  left: 8,
-                ),
+                padding: const EdgeInsets.only(left: 8, bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
