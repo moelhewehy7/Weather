@@ -33,8 +33,4 @@ To get started with the Weather App, follow these steps:
 2. Install dependencies using `flutter pub get`.
 3. Run the app using `flutter run`.
 
-## Feedback
-
-We welcome any feedback or suggestions to improve the Weather App. Please feel free to [open an issue](https://github.com/your-username/your-repository/issues) or [submit a pull request](https://github.com/your-username/your-repository/pulls) with your changes.
-
 
