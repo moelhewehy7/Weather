@@ -8,8 +8,8 @@ import '../manager/cubits/get_weather_cubit/get_weather_states.dart';
 
 class WeatherInfo extends StatelessWidget {
   const WeatherInfo({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class WeatherInfo extends StatelessWidget {
             errMessage: state.errMessage,
           );
         } else {
-          return Center(
+          return const Center(
             child: SizedBox(
               width: 20,
               height: 20,

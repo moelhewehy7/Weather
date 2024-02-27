@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class FailureView extends StatelessWidget {
   const FailureView({
-    Key? key,
+    super.key,
     required this.errMessage,
-  }) : super(key: key);
+  });
   final String errMessage;
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class FailureView extends StatelessWidget {
       body: Center(
         child: Text(
           errMessage,
-          style: TextStyle(fontSize: 18, color: Colors.red),
+          style: const TextStyle(fontSize: 18, color: Colors.red),
           textAlign: TextAlign.center,
         ),
       ),

@@ -35,13 +35,14 @@ class WeatherInfoBodyStack extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        await Future.delayed(Duration(seconds: 2)); // Delay for 1 second
+        await Future.delayed(const Duration(seconds: 2)); // Delay for 1 second
+        // ignore: use_build_context_synchronously
         return BlocProvider.of<WeatherCubit>(context)
             .getWeather(cityname: weathermodel.cityname);
       },
       displacement:
           50, // Set the distance the indicator can be pulled before a refresh is triggered
-      color: Color(0xFF0D81E0), // Set the color of the refresh indicator
+      color: const Color(0xFF0D81E0), // Set the color of the refresh indicator
       backgroundColor: const Color.fromARGB(255, 84, 84,
           84), // Set the background color behind the refresh indicator
       strokeWidth: 3.0, // Set the thickness of the indicator

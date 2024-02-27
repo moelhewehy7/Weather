@@ -8,10 +8,10 @@ import 'package:Weather/features/data/model/city_model.dart';
 
 class SearchResultListTile extends StatelessWidget {
   const SearchResultListTile({
-    Key? key,
+    super.key,
     required this.height,
     required this.width,
-  }) : super(key: key);
+  });
 
   final double height, width;
 

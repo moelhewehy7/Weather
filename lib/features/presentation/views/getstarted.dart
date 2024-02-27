@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:Weather/features/presentation/views/search_page.dart';
 
 class GetStarted extends StatelessWidget {
-  const GetStarted({Key? key}) : super(key: key);
+  const GetStarted({super.key});
 
   @override
   Widget build(BuildContext context) {

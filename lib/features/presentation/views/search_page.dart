@@ -53,9 +53,9 @@ class CustomAppBar extends StatefulWidget {
   final double height;
 
   const CustomAppBar({
-    Key? key,
+    super.key,
     required this.height,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
