@@ -26,17 +26,16 @@ class WeatherInfo extends StatelessWidget {
             errMessage: state.errMessage,
           );
         } else {
-          return SizedBox(
-            width: 20,
-            height: 20,
-            child: const Center(
-                child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                  Color(0xFF103554)), // Change color to blue
-              strokeWidth: 3, // Increase the thickness of the indicator
-              semanticsLabel: 'Loading', // Optional label for accessibility
-              semanticsValue: 'Loading', // Optional value for accessibility
-            )),
+          return Center(
+            child: SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    Color(0xFF103554)), // Change color to blue
+                strokeWidth: 2, // Increase the thickness of the indicator
+              ),
+            ),
           );
         }
       },

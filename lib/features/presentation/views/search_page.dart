@@ -1,3 +1,4 @@
+import 'package:Weather/core/helper/animatednavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_city_cubit.dart';
@@ -48,7 +49,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 }
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatefulWidget {
   final double height;
 
   const CustomAppBar({
@@ -57,12 +58,17 @@ class CustomAppBar extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         TextButton(
           onPressed: () {
-            Navigator.pop(context);
+            animatednavigation(context);
           },
           child: const Text(
             'Cancel',
@@ -72,7 +78,7 @@ class CustomAppBar extends StatelessWidget {
         // Add some space between the back button and the search field
         Expanded(
           child: Container(
-            height: height * .06,
+            height: widget.height * .06,
             width: double.infinity, // Expand to fill the available space
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: const SerachField(),

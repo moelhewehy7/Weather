@@ -13,13 +13,14 @@ class WeatherCubit extends Cubit<WeatherState> {
   String? lastSearchedCity;
 
   Future<void> getWeather({required String cityname}) async {
-    emit(WeatherloadingState());
     saveLastSearchedCity(cityname);
     var result = await WeatherService(Dio()).getWeather(cityname: cityname);
 
     result.fold((failure) {
       emit(WeatherFailureState(errMessage: failure.errorMessage));
-    }, (cityModel) => emit(WeatherLoadedState(weatherModel: cityModel)));
+    }, (cityModel) {
+      emit(WeatherLoadedState(weatherModel: cityModel));
+    });
   }
 
   Future<void> saveLastSearchedCity(String cityName) async {
@@ -29,11 +30,9 @@ class WeatherCubit extends Cubit<WeatherState> {
 
   Future<void> getLastSearchedCity() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     lastSearchedCity = prefs.getString('lastSearchedCity');
-
     if (lastSearchedCity != null) {
-      // If a last searched city is found, fetch weather data for it
+      emit(WeatherloadingState());
       await getWeather(cityname: lastSearchedCity!);
     }
   }

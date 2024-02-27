@@ -1,10 +1,10 @@
+import 'package:Weather/core/helper/animatednavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_city_cubit.dart';
 import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_city_states.dart';
 import 'package:Weather/features/presentation/manager/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:Weather/features/data/model/city_model.dart';
-import '../views/weather_info.dart';
 
 class SearchResultListTile extends StatelessWidget {
   const SearchResultListTile({
@@ -133,24 +133,6 @@ class ResultListView extends StatelessWidget {
             );
           },
         ),
-      ),
-    );
-  }
-
-  Future<dynamic> animatednavigation(BuildContext context) {
-    return Navigator.of(context).pushReplacement(
-      PageRouteBuilder(
-        transitionDuration: const Duration(milliseconds: 1000),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-            opacity: animation,
-            child: child,
-          );
-        },
-        pageBuilder: (context, animation, secondaryAnimation) {
-          // Return your destination screen widget here
-          return const WeatherInfo();
-        },
       ),
     );
   }
