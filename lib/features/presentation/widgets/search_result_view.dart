@@ -4,7 +4,7 @@ import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_
 import 'package:Weather/features/presentation/manager/cubits/get_city_cubit/get_city_states.dart';
 import 'package:Weather/features/presentation/manager/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:Weather/features/data/model/city_model.dart';
-import 'package:Weather/features/presentation/views/home_view.dart';
+import '../views/weather_info.dart';
 
 class SearchResultListTile extends StatelessWidget {
   const SearchResultListTile({
@@ -149,7 +149,7 @@ class ResultListView extends StatelessWidget {
         },
         pageBuilder: (context, animation, secondaryAnimation) {
           // Return your destination screen widget here
-          return const HomeView();
+          return const WeatherInfo();
         },
       ),
     );

@@ -33,7 +33,6 @@ class WeatherService {
     try {
       Response response = await dio.get(
           "https://api.weatherapi.com/v1/search.json?key=c1bae27c60d841a9a19131622230606&q=$cityname");
-
       List<dynamic> citiesList = response.data;
       List<CityModel> cities = [];
       for (var city in citiesList) {

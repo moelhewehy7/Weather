@@ -1,6 +1,6 @@
+import 'package:Weather/features/presentation/views/weather_info.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:Weather/features/presentation/views/home_view.dart';
 import 'package:Weather/features/presentation/widgets/onboarding_view_body.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -30,6 +30,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: onboardingShown ? const HomeView() : const OnBoardingViewBody());
+        body:
+            onboardingShown ? const WeatherInfo() : const OnBoardingViewBody());
   }
 }
