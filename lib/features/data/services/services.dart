@@ -13,26 +13,16 @@ class WeatherService {
   Future<Either<Failure, WeatherModel>> getWeather(
       {required String cityname}) async {
     try {
-      try {
-        Response response =
-            await dio.get("$baseurl?key=$key&q=$cityname&days=3");
-        WeatherModel weatherModel = WeatherModel.fromjson(response.data);
-        return Right(weatherModel);
-      } on Exception catch (e) {
-        return left(ServerFailure(
-            "No cities found for the given search. Error : ${e.toString()}"));
-      }
+      Response response = await dio.get("$baseurl?key=$key&q=$cityname&days=3");
+      WeatherModel weatherModel = WeatherModel.fromjson(response.data);
+      return Right(weatherModel);
     } catch (e) {
       if (e is DioException) {
-        // Check if it's a Dio error with a response
-        if (e.response != null) {
-          return Left(ServerFailure.fromResponse(
-              e.response!.statusCode, e.response!.data));
-        } else {
-          return Left(ServerFailure.fromDioException(e));
-        }
+        return left(ServerFailure.fromDioException(e));
+      } else if (e is DioException) {
+        return left(ServerFailure.fromResponse(
+            e.response!.statusCode, e.response!.data));
       } else {
-        // Handle other types of errors
         return Left(ServerFailure("No cities found for the given search."));
       }
     }
@@ -52,13 +42,10 @@ class WeatherService {
       return Right(cities);
     } catch (e) {
       if (e is DioException) {
-        // Check if it's a Dio error with a response
-        if (e.response != null) {
-          return Left(ServerFailure.fromResponse(
-              e.response!.statusCode, e.response!.data));
-        } else {
-          return Left(ServerFailure.fromDioException(e));
-        }
+        return left(ServerFailure.fromDioException(e));
+      } else if (e is DioException) {
+        return left(ServerFailure.fromResponse(
+            e.response!.statusCode, e.response!.data));
       } else {
         // Handle other types of errors
         return Left(ServerFailure("No cities found for the given search."));
