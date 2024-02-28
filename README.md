@@ -7,7 +7,7 @@ Welcome to the Weather App, a simple weather application that allows you to chec
 - **Search:** Search for a specific city to get detailed weather information.
 - **City Data:** View city name, temperature, min and max temperature, weather condition, and background related to the weather condition.
 - **Introduction Screen:** A welcoming introduction screen to guide users. It is shown only once using SharedPreferences.
-- **Refresh Indicator**: Added a refresh indicator to the home page, allowing users to manually refresh the content for the latest updates.
+- **Refresh Indicator**: Added a refresh indicator to the Weather page, allowing users to manually refresh the content for the latest updates.
 
 ## Future Plans
 
